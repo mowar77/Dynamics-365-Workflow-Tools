@@ -451,16 +451,15 @@ namespace msdyncrmWorkflowTools
             regexSuccess = false;
             if (regularExpression != "")
             {
-                Regex regex = new Regex(regularExpression);
-                Match match = regex.Match(inputText);
+                Regex regex_value = new Regex(regularExpression);
+                Match match = regex_value.Match(inputText);
                 if (match.Success)
                 {
                     regexSuccess = true;
-                    regexText = match.Value;
+                    regexText = regex_value.Replace(inputText, "");
                 }
 
             }
-
             uppercaseText = inputText.ToUpper();
             lowercaseText = inputText.ToLower();
 
